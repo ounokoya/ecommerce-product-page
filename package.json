@@ -1,14 +1,15 @@
 {
   "name": "ecommerce-product-page",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Solution du challenge Frontend Mentor « E-commerce product page »",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "playwright test"
+    "test": "playwright test",
+    "deploy": "bash scripts/deploy-gh-pages.sh"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",

@@ -78,3 +78,21 @@
 - **Pas de polices locales** dans ce starter (Kumbh Sans via Google Fonts) : le choix du chargement de la police sera une décision de Phase 5.
 - Le `.gitignore` du starter n'ignorait pas `node_modules` : complété.
 - `AGENTS.md` et `CLAUDE.md` rangés dans `specs/reference/starter-*.md`.
+
+## Validation G2 — analyse Excalidraw (2026-11-04)
+
+Analyse validée telle quelle (`specs/visuel/ecommerce-product-page-analyse.*`). Décisions retenues :
+
+| # | Sujet | Décision |
+|---|---|---|
+| Q1 | Ancien prix à 1,9:1 | Dark grayish blue (5,0:1), toujours barré |
+| Q2 | Chiffre de la pastille à 2,6:1 | Chiffre Very dark blue sur la pastille Orange (6,4:1) |
+| Q3 | Icônes − + à 2,4:1 | Orange plus foncé pour ces icônes : `hsl(26, 100%, 46%)` (3,1:1) |
+| Q4 | Tablette sans maquette | 640 à 1023 px : structure mobile, photo et contenu centrés sur ≈ 550 px, photo arrondie |
+| Q5 | Sélecteur après l'ajout | Retour à 0, quantités additionnées dans le panier |
+| Q6 | Ouverture du panier | Au clic ; fermeture par 2e clic, Échap, clic dehors ou « Checkout » |
+| Q7 | Visionneuse et page | Ouverture sur l'image affichée ; la page garde la dernière image vue |
+| Q8 | États non dessinés | Liens du menu mobile Orange au survol ; supprimer plus foncé ; grande photo : voile léger |
+| Q9 | Police Kumbh Sans | Choix en Phase 5 (Google Fonts ou fichiers locaux via npm), par l'humain |
+
+Inventaire des éléments interactifs : 19 groupes (analyse, section 2A). Contour de focus 2 px décalé de 2 px partout.

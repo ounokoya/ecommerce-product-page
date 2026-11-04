@@ -96,3 +96,7 @@ Analyse validée telle quelle (`specs/visuel/ecommerce-product-page-analyse.*`).
 | Q9 | Police Kumbh Sans | Choix en Phase 5 (Google Fonts ou fichiers locaux via npm), par l'humain |
 
 Inventaire des éléments interactifs : 19 groupes (analyse, section 2A). Contour de focus 2 px décalé de 2 px partout.
+
+## Validation G3 — maquette Penpot (2026-11-04)
+
+Maquette validée telle quelle (`specs/visuel/penpot/maquette.md`) avec les seuils visuels calibrés : 5 % par écran, 5,2 % pour « Mobile · Page » et « Mobile · Panier rempli ». Les états composites de FM (plusieurs survols à la fois) sont comparés sur des zones ciblées en Phase 7.

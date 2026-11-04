@@ -1,22 +1,27 @@
-# Frontend Mentor - E-commerce product page
+# Frontend Mentor - E-commerce product page solution
 
-![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Workflow](#workflow)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this e-commerce product page and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
@@ -25,85 +30,102 @@ Your users should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+![Desktop layout of the product page](./screenshot.jpg)
 
-## Where to find everything
+### Links
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+- Solution URL: added after submission
+- Live Site URL: [ounokoya.github.io/ecommerce-product-page](https://ounokoya.github.io/ecommerce-product-page/)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+## My process
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### Built with
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+- Semantic HTML5 markup, native `<dialog>` for the lightbox and the mobile menu
+- [Tailwind CSS v4](https://tailwindcss.com/) — design tokens in `@theme`, default palette removed, repeated groups as `@utility`
+- Vanilla JavaScript, one ES module per feature (`cart.js`, `gallery.js`, `menu.js`, shared `dialog.js`)
+- Mobile-first layout with Flexbox and CSS Grid (mobile < 640 px, tablet 640–1023 px, desktop ≥ 1024 px)
+- Kumbh Sans served with the site through [Fontsource](https://fontsource.org/fonts/kumbh-sans) (no request to another domain)
+- [Vite](https://vite.dev/) for the build, deployed on GitHub Pages from the `gh-pages` branch (`npm run deploy`)
+- [Playwright](https://playwright.dev/), [axe-core](https://github.com/dequelabs/axe-core) and the W3C Nu validator for tests
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Workflow
 
-## Using AI coding assistants
+Before any code, the design was analysed and rebuilt:
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+1. **Visual analysis in Excalidraw** — every screen measured in px, inventory of all interactive elements and their states, contrast checks → [`specs/visuel/`](./specs/visuel/)
+2. **Penpot mockup and prototype** — colour and type library, 16 components with their states, 15 screens (including a tablet proposal), click-through prototype, visual thresholds calibrated per screen → [`specs/visuel/penpot/`](./specs/visuel/penpot/)
+3. **Spec, then tests** — 30 Given/When/Then scenarios and the accessible names the tests rely on → [`specs/specifications/`](./specs/specifications/); the 40 Playwright tests were written right after the spec, before the code
+4. **Decisions** — font loading, JS organisation, modals and cart popover chosen among options → [`specs/adr/`](./specs/adr/)
+5. **Code** — one commit per part (theme, layout, cart, gallery, menu), tests run at each step → [`specs/analyse/`](./specs/analyse/) for the validation report
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+### What I learned
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+**The native `<dialog>` does most of the modal work.** `showModal()` gives Escape, an inert background, the top layer and focus restoration. Only the click on the backdrop needs code, because its target is the dialog itself:
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+```js
+dialog.addEventListener('click', (event) => {
+  if (event.target !== dialog) return
+  const box = dialog.getBoundingClientRect()
+  const outside = event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom
+  if (outside) dialog.close()
+})
+```
 
-## Building your project
+**One state, two views.** The page gallery and the lightbox are both rendered from the same `current` index, so closing the lightbox keeps the last image viewed without any syncing code:
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+```js
+function show(index) {
+  current = (index + count) % count // the arrows loop
+  for (const view of views) {
+    view.querySelectorAll('[data-slide]').forEach((slide, i) => { slide.hidden = i !== current })
+    for (const thumb of view.querySelectorAll('[data-show]')) {
+      thumb.setAttribute('aria-pressed', String(Number(thumb.dataset.show) === current))
+    }
+  }
+}
+```
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+**Styling from ARIA state.** The active thumbnail is styled from `aria-pressed`, so what a screen reader announces and what the eye sees cannot diverge:
 
-## Deploying your project
+```css
+@utility thumb {
+  &[aria-pressed="true"] { @apply ring-2 ring-orange; }
+  &[aria-pressed="true"] > img { opacity: 0.25; }
+}
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+**Testing through accessible names.** The tests only use roles and names (`getByRole('button', { name: 'Add to cart' })`), never classes, so they double as an accessibility check and leave the markup free.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### Continued development
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+- **Accessibility vs. pixel-perfect.** Four design colours were below WCAG thresholds and were changed: the old price (Dark grayish blue, 5.0:1), the cart badge digit (Very dark blue on Orange, 6.4:1), the − / + icons (darker orange `hsl(26, 100%, 46%)`, 3.1:1) and the delete icon (Dark grayish blue, 4.9:1 instead of 1.6:1).
+- **Visual comparison with the design files.** Screenshots differ from the Frontend Mentor JPGs by 0.5–4.8 % of pixels. On mobile, the browser renders Kumbh Sans about 3 % wider than the JPG, so one line of the description wraps differently; I did not tighten the letter spacing to match a picture.
+- **No tablet design** was provided: the tablet layout (centred 550 px photo and content) is my own proposal.
+- **Cart behaviour choices**: the quantity selector goes back to 0 after adding, and quantities add up in the cart.
 
-## Create a custom `README.md`
+### Useful resources
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+- [MDN — The Dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog) — `showModal()`, `::backdrop`, the `close` event.
+- [Tailwind CSS — Theme variables](https://tailwindcss.com/docs/theme) — `@theme`, namespaces and resetting the default palette.
+- [WebAIM — Contrast checker](https://webaim.org/resources/contrastchecker/) — to check the design colours.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+### AI Collaboration
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+I used **Claude (Claude Code)** as a pair, inside a spec-driven workflow where I validated each step before the next one:
 
-## Submitting your solution
+- **Planning**: choosing the challenge and writing the plan, which I validated.
+- **Design analysis**: measuring the JPG designs and drawing the annotated Excalidraw analysis, which I reviewed; I decided the contrast fixes, the tablet layout and the cart behaviour.
+- **Mockup**: building the Penpot library, components, screens and prototype, which I validated.
+- **Spec and tests**: writing the scenarios and the Playwright tests before any code.
+- **Technical decisions**: Claude presented options with their trade-offs and I chose (Fontsource, one module per feature, native `<dialog>`, cart button with `aria-expanded`).
+- **Code**: written by Claude from the validated spec, one commit per part, with the tests run at each step. The plan first said I would write the code with Claude as a tutor; that came from a misunderstanding of who would code, and we switched before the first line of code.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+What worked well: tests written before the code gave a clear target, and the calibrated Penpot screens made the visual checks meaningful. What needed my decisions: the design's contrast issues, the tablet layout, the cart rules and the accepted visual differences.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+## Author
 
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [@ounokoya](https://www.frontendmentor.io/profile/ounokoya)
+- GitHub - [@ounokoya](https://github.com/ounokoya)

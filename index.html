@@ -2,39 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | E-commerce product page</title>
 
   <script type="module" src="/src/main.js"></script>
 </head>
-<body>
+<body class="bg-white text-dark-grayish-blue">
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+  <!-- En-tête : 67 px (mobile), 89 px avec filet (tablette), 112 px avec filet (desktop) -->
+  <header class="relative z-10 flex h-[67px] items-center pr-[23px] pb-[3px] pl-6 sm:mx-12 sm:h-[89px] sm:border-b sm:border-grayish-blue/30 sm:px-0 sm:pb-0 lg:mx-auto lg:h-28 lg:w-[min(1110px,calc(100%-48px))] lg:pb-1.5">
+    <button id="menu-open" type="button" class="-m-1 p-1 text-dark-grayish-blue hover:text-very-dark-blue lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg width="16" height="15" viewBox="0 0 16 15" aria-hidden="true"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="currentColor" fill-rule="evenodd"/></svg>
+    </button>
 
-  Sneaker Company
+    <img class="-mt-1 ml-4 sm:mt-0 lg:ml-0" src="./images/logo.svg" alt="sneakers" width="138" height="20">
 
-  Fall Limited Edition Sneakers
+    <nav class="ml-[57px] hidden self-stretch lg:flex" aria-label="Main">
+      <ul class="flex gap-8">
+        <li class="flex"><a class="nav-link" href="#">Collections</a></li>
+        <li class="flex"><a class="nav-link" href="#">Men</a></li>
+        <li class="flex"><a class="nav-link" href="#">Women</a></li>
+        <li class="flex"><a class="nav-link" href="#">About</a></li>
+        <li class="flex"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </nav>
 
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
+    <div class="ml-auto flex items-center gap-[23px] sm:gap-[26px] lg:gap-[46px]">
+      <button id="cart-button" type="button" class="relative -m-1 p-1 text-dark-grayish-blue hover:text-very-dark-blue" aria-label="Cart" aria-expanded="false" aria-controls="cart">
+        <svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="currentColor" fill-rule="nonzero"/></svg>
+        <span id="cart-count" class="absolute top-[-2px] left-[13px] grid h-[13px] min-w-[19px] place-items-center rounded-full bg-orange px-1.5 text-badge font-bold text-very-dark-blue" aria-hidden="true" hidden></span>
+      </button>
+      <a class="block rounded-full hover:ring-2 hover:ring-orange" href="#">
+        <img class="size-6 sm:size-8 lg:size-[50px]" src="./images/image-avatar.png" alt="Your profile" width="50" height="50">
+      </a>
+    </div>
 
-  $125.00
-  50%
-  $250.00
+    <!-- Carte du panier (ADR-0007) : à 8 px des bords en mobile, 360 × 256 sous le bouton ailleurs -->
+    <section id="cart" class="absolute inset-x-2 top-[76px] min-h-64 rounded-control bg-white shadow-card sm:right-0 sm:left-auto sm:top-[97px] sm:w-[360px] lg:top-[94px] lg:-right-[76px]" aria-labelledby="cart-title" hidden>
+      <h2 id="cart-title" class="border-b border-grayish-blue/30 px-6 pt-[22px] pb-[29px] text-label font-bold text-very-dark-blue">Cart</h2>
+      <p id="cart-empty" class="grid min-h-[188px] place-items-center pb-3 text-label font-bold">Your cart is empty.</p>
+      <div id="cart-filled" class="px-6 pt-6 pb-8" hidden>
+        <div class="flex items-center">
+          <img class="size-[50px] rounded" src="./images/image-product-1-thumbnail.jpg" alt="" width="50" height="50">
+          <p class="ml-4 min-w-0 flex-1 text-body">
+            Fall Limited Edition Sneakers<br>
+            $125.00 x <span id="cart-quantity">0</span>
+            <b id="cart-total" class="ml-1.5 text-very-dark-blue">$0.00</b>
+          </p>
+          <button id="cart-delete" type="button" class="-m-1 ml-1 p-1 text-dark-grayish-blue hover:text-very-dark-blue" aria-label="Delete item">
+            <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          </button>
+        </div>
+        <button id="checkout" type="button" class="btn mt-6 w-full">Checkout</button>
+      </div>
+    </section>
+  </header>
 
-  0
-  Add to cart
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="https://www.frontendmentor.io/profile/ounokoya">Koya Esdras</a>.
+  <!-- Contenu : pleine largeur (mobile), 550 px centrés (tablette), deux colonnes de 445 px (desktop) -->
+  <main class="sm:mx-auto sm:w-[550px] sm:pt-[23px] lg:grid lg:w-[min(1110px,calc(100%-48px))] lg:grid-cols-[minmax(0,445px)_minmax(0,445px)] lg:gap-x-[clamp(3rem,calc(100vw-1315px),125px)] lg:pt-[91px] lg:pr-[47px] lg:pb-20 lg:pl-12">
+    <section aria-label="Product images" data-gallery>
+      <div class="relative">
+        <img class="photo" src="./images/image-product-1.jpg" alt="Fall Limited Edition Sneakers, image 1 of 4" width="1000" height="1000" data-slide>
+        <img class="photo" src="./images/image-product-2.jpg" alt="Fall Limited Edition Sneakers, image 2 of 4" width="1000" height="1000" loading="lazy" data-slide hidden>
+        <img class="photo" src="./images/image-product-3.jpg" alt="Fall Limited Edition Sneakers, image 3 of 4" width="1000" height="1000" loading="lazy" data-slide hidden>
+        <img class="photo" src="./images/image-product-4.jpg" alt="Fall Limited Edition Sneakers, image 4 of 4" width="1000" height="1000" loading="lazy" data-slide hidden>
+        <button type="button" class="absolute inset-0 hidden rounded-photo hover:bg-white/25 lg:block" aria-label="Open image gallery" aria-haspopup="dialog" aria-controls="lightbox" data-open-lightbox></button>
+        <button type="button" class="arrow absolute top-1/2 left-4 size-10 -translate-y-1/2 lg:hidden" aria-label="Previous image" data-step="-1">
+          <svg class="h-3 w-2" viewBox="0 0 12 18" aria-hidden="true"><path d="M11 1 3 9l8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+        <button type="button" class="arrow absolute top-1/2 right-4 size-10 -translate-y-1/2 lg:hidden" aria-label="Next image" data-step="1">
+          <svg class="h-3 w-[8.7px]" viewBox="0 0 13 18" aria-hidden="true"><path d="m2 1 8 8-8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+      </div>
+      <ul class="mt-8 hidden grid-cols-4 gap-[31px] lg:grid">
+        <li><button type="button" class="thumb" aria-label="Show image 1" aria-pressed="true" data-show="0"><img src="./images/image-product-1-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 2" aria-pressed="false" data-show="1"><img src="./images/image-product-2-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 3" aria-pressed="false" data-show="2"><img src="./images/image-product-3-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 4" aria-pressed="false" data-show="3"><img src="./images/image-product-4-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+      </ul>
+    </section>
+
+    <section class="px-6 pt-[27px] pb-[88px] sm:px-0 sm:pt-10 sm:pb-10 lg:pt-16 lg:pb-0" aria-labelledby="product-title">
+      <p class="text-brand-mobile font-bold uppercase sm:text-brand">Sneaker Company</p>
+      <h1 id="product-title" class="mt-[14px] text-title-mobile font-bold text-very-dark-blue sm:mt-[19px] sm:text-title">Fall Limited Edition Sneakers</h1>
+      <p class="mt-4 text-body-mobile sm:mt-8 sm:text-body lg:mt-[38px]">
+        These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+
+      <div class="mt-7 flex items-center justify-between sm:mt-8 lg:mt-[26px] lg:block">
+        <p class="flex items-center gap-6 text-very-dark-blue">
+          <span class="sr-only">Price:</span>
+          <span class="text-price font-bold">$125.00</span>
+          <span class="grid h-[27px] w-[51px] place-items-center rounded-md bg-very-dark-blue text-label font-bold text-white">50%<span class="sr-only"> off</span></span>
+        </p>
+        <p class="text-label font-bold lg:mt-4"><span class="sr-only">Original price:</span> <s>$250.00</s></p>
+      </div>
+
+      <div class="mt-7 flex flex-col gap-4 sm:mt-9 sm:flex-row lg:mt-[38px]">
+        <div class="flex h-14 items-center justify-between rounded-control bg-light-grayish-blue sm:w-[157px] sm:shrink-0">
+          <button type="button" class="quantity-step" aria-label="Decrease quantity" data-quantity="-1">
+            <svg width="12" height="4" viewBox="0 0 12 4" aria-hidden="true"><path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          </button>
+          <output id="quantity" class="text-label font-bold text-very-dark-blue" aria-label="Quantity">0</output>
+          <button type="button" class="quantity-step" aria-label="Increase quantity" data-quantity="1">
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          </button>
+        </div>
+        <button id="add-to-cart" type="button" class="btn gap-4 shadow-button sm:flex-1 sm:shadow-none">
+          <svg width="17.6" height="16" viewBox="0 0 22 20" aria-hidden="true"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          Add to cart
+        </button>
+      </div>
+
+      <p id="announce" class="sr-only" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="px-6 py-6 text-center text-[11px] lg:pt-0">
+    Challenge by <a class="text-very-dark-blue underline hover:no-underline" href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a class="text-very-dark-blue underline hover:no-underline" href="https://www.frontendmentor.io/profile/ounokoya">Koya Esdras</a>.
   </footer>
+
+  <!-- Menu mobile (ADR-0006) : panneau de 250 px, fond noir 75 % -->
+  <dialog id="menu" class="m-0 h-full max-h-none w-[250px] max-w-none bg-white px-[25px] pt-6 backdrop:bg-black/75" aria-label="Menu">
+    <button id="menu-close" type="button" class="-m-1 p-1 text-dark-grayish-blue hover:text-very-dark-blue" aria-label="Close menu">
+      <svg width="14" height="15" viewBox="0 0 14 15" aria-hidden="true"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="currentColor" fill-rule="evenodd"/></svg>
+    </button>
+    <nav class="mt-[55px]" aria-label="Main">
+      <ul class="flex flex-col gap-7 text-menu font-bold text-very-dark-blue">
+        <li><a class="hover:text-orange-icon" href="#">Collections</a></li>
+        <li><a class="hover:text-orange-icon" href="#">Men</a></li>
+        <li><a class="hover:text-orange-icon" href="#">Women</a></li>
+        <li><a class="hover:text-orange-icon" href="#">About</a></li>
+        <li><a class="hover:text-orange-icon" href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </dialog>
+
+  <!-- Visionneuse (ADR-0006), desktop seulement : photo 550 × 550 centrée, fond noir 75 % -->
+  <dialog id="lightbox" class="m-auto max-h-none max-w-none overflow-visible bg-transparent backdrop:bg-black/75 **:focus-visible:outline-white" aria-label="Image gallery" data-gallery>
+    <div class="flex w-[550px] flex-col">
+      <button id="lightbox-close" type="button" class="-m-1 self-end p-1 text-white hover:text-orange" aria-label="Close gallery">
+        <svg width="18" height="19" viewBox="0 0 14 15" aria-hidden="true"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="currentColor" fill-rule="evenodd"/></svg>
+      </button>
+      <div class="relative mt-6">
+        <img class="aspect-square w-full rounded-photo" src="./images/image-product-1.jpg" alt="Fall Limited Edition Sneakers, image 1 of 4" width="1000" height="1000" loading="lazy" data-slide>
+        <img class="aspect-square w-full rounded-photo" src="./images/image-product-2.jpg" alt="Fall Limited Edition Sneakers, image 2 of 4" width="1000" height="1000" loading="lazy" data-slide hidden>
+        <img class="aspect-square w-full rounded-photo" src="./images/image-product-3.jpg" alt="Fall Limited Edition Sneakers, image 3 of 4" width="1000" height="1000" loading="lazy" data-slide hidden>
+        <img class="aspect-square w-full rounded-photo" src="./images/image-product-4.jpg" alt="Fall Limited Edition Sneakers, image 4 of 4" width="1000" height="1000" loading="lazy" data-slide hidden>
+        <button type="button" class="arrow absolute top-[237px] left-0 size-14 -translate-x-1/2" aria-label="Previous image" data-step="-1">
+          <svg width="12" height="18" viewBox="0 0 12 18" aria-hidden="true"><path d="M11 1 3 9l8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+        </button>
+        <button type="button" class="arrow absolute top-[237px] right-0 size-14 translate-x-1/2" aria-label="Next image" data-step="1">
+          <svg width="13" height="18" viewBox="0 0 13 18" aria-hidden="true"><path d="m2 1 8 8-8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <ul class="mx-auto mt-10 grid w-[445px] grid-cols-4 gap-[31px]">
+        <li><button type="button" class="thumb" aria-label="Show image 1" aria-pressed="true" data-show="0"><img src="./images/image-product-1-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 2" aria-pressed="false" data-show="1"><img src="./images/image-product-2-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 3" aria-pressed="false" data-show="2"><img src="./images/image-product-3-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 4" aria-pressed="false" data-show="3"><img src="./images/image-product-4-thumbnail.jpg" alt="" width="88" height="88"></button></li>
+      </ul>
+    </div>
+  </dialog>
 </body>
 </html>

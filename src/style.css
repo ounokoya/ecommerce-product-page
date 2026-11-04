@@ -49,3 +49,66 @@
   --shadow-card: 0 20px 50px -20px hsl(220 13% 13% / 0.5);
   --shadow-button: 0 20px 50px -20px hsl(26 100% 55% / 0.6);
 }
+
+/* A9 : contour de focus de 2 px sur tout élément interactif (blanc dans la visionneuse) */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-very-dark-blue);
+    outline-offset: 2px;
+  }
+
+  /* Ouverture des fenêtres modales : fondu de 200 ms, aucun sous prefers-reduced-motion */
+  @media (prefers-reduced-motion: no-preference) {
+    dialog[open],
+    dialog[open]::backdrop {
+      animation: fade-in 200ms ease-out;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Groupes d'utilitaires répétés (retour FM R1 de Newsletter) */
+@utility btn {
+  @apply flex h-14 items-center justify-center rounded-control bg-orange text-label font-bold text-very-dark-blue transition-colors duration-200 hover:bg-orange/65 motion-reduce:transition-none;
+}
+
+@utility nav-link {
+  @apply relative flex items-center text-nav text-dark-grayish-blue transition-colors duration-200 hover:text-very-dark-blue motion-reduce:transition-none;
+  /* barre Orange de 4 px posée sur le filet de l'en-tête */
+  @apply after:absolute after:inset-x-0 after:-bottom-[7px] after:h-1 after:bg-orange after:opacity-0 hover:after:opacity-100;
+}
+
+@utility photo {
+  @apply h-[300px] w-full object-cover sm:aspect-square sm:h-auto sm:rounded-photo;
+}
+
+@utility arrow {
+  @apply grid place-items-center rounded-full bg-white text-very-dark-blue transition-colors duration-200 hover:text-orange motion-reduce:transition-none;
+}
+
+@utility quantity-step {
+  @apply grid h-full w-15 place-items-center rounded-control text-orange-icon sm:w-11 transition-opacity duration-200 hover:opacity-65 motion-reduce:transition-none;
+}
+
+/* Miniature : survol = voile blanc 50 %, active = voile 75 % + bordure Orange 2 px */
+@utility thumb {
+  @apply block w-full overflow-hidden rounded-control bg-white;
+
+  & > img {
+    @apply aspect-square w-full transition-opacity duration-200 motion-reduce:transition-none;
+  }
+  &:hover > img {
+    opacity: 0.5;
+  }
+  &[aria-pressed="true"] {
+    @apply ring-2 ring-orange;
+  }
+  &[aria-pressed="true"] > img {
+    opacity: 0.25;
+  }
+}

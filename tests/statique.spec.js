@@ -38,9 +38,12 @@ test('ADR-0004 — la page ne charge rien depuis un autre domaine (police compri
   page.on('request', (r) => { if (new URL(r.url()).origin !== new URL(baseURL).origin) outside.push(r.url()) })
   await open(page, 1440)
 
+  // load() télécharge la graisse même si aucun texte ne l'utilise encore ; [] si elle n'est pas déclarée
+  const weights = await page.evaluate(async () => {
+    const found = []
+    for (const w of ['400', '700']) if ((await document.fonts.load(`${w} 16px "Kumbh Sans"`)).length) found.push(w)
+    return found
+  })
+  expect(weights).toEqual(['400', '700'])
   expect(outside).toEqual([])
-  const loaded = await page.evaluate(() => [...document.fonts]
-    .filter((f) => f.family.replace(/["']/g, '') === 'Kumbh Sans' && f.status === 'loaded')
-    .map((f) => f.weight))
-  expect(loaded).toEqual(expect.arrayContaining(['400', '700']))
 })

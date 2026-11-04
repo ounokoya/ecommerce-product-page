@@ -19,7 +19,7 @@ La bibliothèque Penpot (validée G3, `specs/visuel/penpot/maquette.md`) fixe le
 
 - Les dérivées à opacité (Orange 65 % au survol, Black 75 % du fond, White 75 / 50 % des miniatures, filet Grayish blue 30 %) passent par `/65`, `/75`, `/50`, `/30`, pas par de nouvelles couleurs.
 - `--font-sans: "Kumbh Sans", sans-serif` (chargement : ADR-0004).
-- Tailles de texte, rayons, ombre de la carte du panier : valeurs du tableau « Typographie » de `maquette.md`. **Les noms sont à ton choix** ; une valeur utilisée à plusieurs endroits devient un token, une valeur unique peut rester un utilitaire Tailwind standard (`text-base`, `rounded-2xl`…).
+- Tailles de texte, rayons, ombre de la carte du panier : valeurs du tableau « Typographie » de `maquette.md`. Une valeur utilisée à plusieurs endroits devient un token : `--text-nav`, `--text-menu`, `--text-brand` (+ `-mobile`), `--text-title` (+ `-mobile`), `--text-body` (+ `-mobile`), `--text-price`, `--text-label`, `--text-badge` (taille, interligne et espacement), `--radius-control` (10 px), `--radius-photo` (15 px), `--shadow-card`, `--shadow-button`. Une valeur unique reste un utilitaire Tailwind (`rounded-md`, `rounded`).
 
 ## Conséquences
 - Changer une couleur du design = changer une ligne de `@theme`.

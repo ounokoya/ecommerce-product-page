@@ -1,7 +1,7 @@
 # Spec — E-commerce product page
 
 > SDL-FM 1.1.0 Phase 4. Sources : analyse validée (G2) `specs/visuel/ecommerce-product-page-analyse.*`, maquette validée (G3) `specs/visuel/penpot/maquette.md`, décisions Q1 à Q9 dans `specs/brainstorming/2026-11-04-ecommerce-product-page.md`.
-> Cette spec dit **quoi** et **pourquoi**, jamais **comment**. Le code est écrit par l'humain (mode « humain guidé ») ; les tests de `tests/` vérifient cette spec et servent de cible.
+> Cette spec dit **quoi** et **pourquoi**, jamais **comment**. Le code est écrit par l'agent (mode Agent depuis la Phase 6, voir le brainstorming) ; les tests de `tests/` vérifient cette spec et servent de cible.
 
 ## 1. Objectif
 

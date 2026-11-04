@@ -100,3 +100,11 @@ Inventaire des éléments interactifs : 19 groupes (analyse, section 2A). Contou
 ## Validation G3 — maquette Penpot (2026-11-04)
 
 Maquette validée telle quelle (`specs/visuel/penpot/maquette.md`) avec les seuils visuels calibrés : 5 % par écran, 5,2 % pour « Mobile · Page » et « Mobile · Panier rempli ». Les états composites de FM (plusieurs survols à la fois) sont comparés sur des zones ciblées en Phase 7.
+
+## Changement de mode — Phase 6 (2026-11-04)
+
+Le choix « Toi, avec moi en tuteur » avait été lu par l'agent comme « l'humain code, l'agent guide » ; l'humain voulait dire l'inverse. Passage en **mode Agent** au début de la Phase 6 : l'agent écrit le code, un commit par partie avec Claude en co-auteur ; l'humain valide les résultats. Les choix techniques de la Phase 5 (faits par l'humain) restent ; les points laissés « à ton choix » dans les ADR sont tranchés par l'agent et notés dans les ADR. Leçon de méthode : nommer l'acteur dans les options (« Claude écrit le code »), jamais « toi / moi ».
+
+## Q10 — Icône de suppression (Phase 6)
+
+L'icône de FM (`#C3CAD9`) est à 1,6:1 sur blanc, sous le minimum de 3:1 pour une icône nécessaire (A8) ; oubliée à l'inventaire de G2. Choix de l'agent, à valider : **Dark grayish blue** (4,9:1), Very dark blue au survol (Q8 « supprimer plus foncé »). Effet sur la zone S26b : quelques dizaines de pixels.

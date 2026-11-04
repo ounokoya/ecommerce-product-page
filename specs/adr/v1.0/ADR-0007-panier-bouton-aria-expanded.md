@@ -16,7 +16,7 @@ La carte du panier s'ouvre sous le bouton, sans être modale : la page reste uti
 - Le bouton du panier porte `aria-expanded` et `aria-controls` ; son nom commence par « Cart » et contient le nombre d'articles quand le panier n'est pas vide (A4).
 - La carte est une région nommée « Cart », cachée par l'attribut `hidden` quand elle est fermée.
 - `cart.js` gère l'ouverture et la fermeture (bouton, Échap, clic hors de la carte et du bouton, « Checkout »). Après Échap, le focus revient au bouton.
-- Les ajouts et suppressions sont annoncés par une zone `aria-live="polite"` (A5) ; le texte de l'annonce est à ton choix.
+- Les ajouts et suppressions sont annoncés par une zone `aria-live="polite"` (A5) ; annonces : « 3 items added. Cart: 5 items. », « Item removed. Your cart is empty. »
 
 ## Conséquences
 - Placement : sous le bouton en desktop (zone 991, 94, 360 × 256 dans S26) ; en mobile, carte large sous l'en-tête (S28, S29).

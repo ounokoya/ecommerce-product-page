@@ -4,7 +4,7 @@
 Accepté (2026-11-04)
 
 ## Contexte
-La page a trois comportements indépendants : la quantité et le panier, la galerie (carrousel, miniatures, visionneuse), le menu mobile. En mode « humain guidé », chaque partie est écrite, relue et commitée à part (SDL-FM 1.1.0, Phase 6).
+La page a trois comportements indépendants : la quantité et le panier, la galerie (carrousel, miniatures, visionneuse), le menu mobile. Chaque partie est écrite, testée et commitée à part (SDL-FM 1.1.0, Phase 6).
 
 ## Options
 | Option | Pour | Contre |

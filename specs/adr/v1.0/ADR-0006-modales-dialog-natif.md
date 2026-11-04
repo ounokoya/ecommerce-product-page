@@ -20,4 +20,5 @@ Contrats A1 et A2 de la spec : fenêtre modale, focus gardé dedans, Échap ferm
 ## Conséquences
 - À la fermeture, le navigateur rend le focus à l'élément qui l'avait ; S16 et S20 le vérifient.
 - Animations d'ouverture (≈ 200 ms) coupées sous `prefers-reduced-motion: reduce`.
-- **Point de structure laissé à ton choix (Phase 6, HTML)** : un `<dialog>` fermé est en `display: none`. Pour les liens du menu, tu peux soit les avoir deux fois (navigation desktop dans l'en-tête, copie dans le `<dialog>`), soit garder une seule liste que le JS déplace. Les tests marchent dans les deux cas, tant qu'une seule liste est visible à la fois.
+- Un `<dialog>` fermé est en `display: none` : les liens du menu existent **deux fois**, navigation « Main » dans l'en-tête (desktop) et copie dans le `<dialog>` (mobile et tablette). Une seule liste est visible à la fois ; aucun JS ne déplace de nœuds.
+- La fermeture au clic sur le fond est commune aux deux modales (`src/dialog.js`), avec la bascule desktop (`matchMedia`) qui ferme la modale devenue sans objet.

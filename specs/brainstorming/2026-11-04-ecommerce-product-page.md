@@ -107,4 +107,4 @@ Le choix « Toi, avec moi en tuteur » avait été lu par l'agent comme « l'hum
 
 ## Q10 — Icône de suppression (Phase 6)
 
-L'icône de FM (`#C3CAD9`) est à 1,6:1 sur blanc, sous le minimum de 3:1 pour une icône nécessaire (A8) ; oubliée à l'inventaire de G2. Choix de l'agent, à valider : **Dark grayish blue** (4,9:1), Very dark blue au survol (Q8 « supprimer plus foncé »). Effet sur la zone S26b : quelques dizaines de pixels.
+L'icône de FM (`#C3CAD9`) est à 1,6:1 sur blanc, sous le minimum de 3:1 pour une icône nécessaire (A8) ; oubliée à l'inventaire de G2. Choix de l'agent, **validé par l'humain le 2026-11-04** : **Dark grayish blue** (4,9:1), Very dark blue au survol (Q8 « supprimer plus foncé »). Effet sur la zone S26b : quelques dizaines de pixels.

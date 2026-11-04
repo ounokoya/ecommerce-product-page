@@ -1,6 +1,6 @@
 # Maquette Penpot — E-commerce product page
 
-> SDL-FM 1.1.0 Phase 3. Fichier Penpot : « ecommerce-product-page », page « E-commerce ». En attente de validation (G3).
+> SDL-FM 1.1.0 Phase 3. Fichier Penpot : « ecommerce-product-page », page « E-commerce ». Validée (G3, 2026-11-04).
 > Décisions G2 appliquées : ancien prix Dark grayish blue (Q1), chiffre de la pastille Very dark blue (Q2), icônes − + `#EB6600` (Q3), tablette (Q4), états non dessinés (Q8).
 
 ## Bibliothèque

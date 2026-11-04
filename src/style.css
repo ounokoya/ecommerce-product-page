@@ -1,1 +1,51 @@
+/* ADR-0004 : Kumbh Sans servie avec le site, graisses 400 et 700 seulement */
+@import "@fontsource/kumbh-sans/400.css";
+@import "@fontsource/kumbh-sans/700.css";
 @import "tailwindcss";
+
+/* ADR-0003 : tokens de la maquette Penpot — seul endroit du projet où une couleur est écrite */
+@theme {
+  --color-*: initial;
+  --color-orange: hsl(26, 100%, 55%);
+  --color-pale-orange: hsl(25, 100%, 94%);
+  --color-orange-icon: hsl(26, 100%, 46%);
+  --color-very-dark-blue: hsl(220, 13%, 13%);
+  --color-dark-grayish-blue: hsl(219, 9%, 45%);
+  --color-grayish-blue: hsl(220, 14%, 75%);
+  --color-light-grayish-blue: hsl(223, 64%, 98%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+
+  --font-sans: "Kumbh Sans", sans-serif;
+
+  --text-nav: 0.9375rem;
+  --text-nav--line-height: 1;
+  --text-menu: 1.125rem;
+  --text-menu--line-height: 1;
+  --text-brand: 0.8125rem;
+  --text-brand--line-height: 1;
+  --text-brand--letter-spacing: 0.125rem;
+  --text-brand-mobile: 0.75rem;
+  --text-brand-mobile--line-height: 1;
+  --text-brand-mobile--letter-spacing: 0.115rem;
+  --text-title: 2.75rem;
+  --text-title--line-height: 3rem;
+  --text-title-mobile: 1.75rem;
+  --text-title-mobile--line-height: 2rem;
+  --text-body: 1rem;
+  --text-body--line-height: 1.625rem;
+  --text-body-mobile: 0.9375rem;
+  --text-body-mobile--line-height: 1.5625rem;
+  --text-price: 1.75rem;
+  --text-price--line-height: 1;
+  --text-label: 1rem;
+  --text-label--line-height: 1;
+  --text-badge: 0.625rem;
+  --text-badge--line-height: 1;
+
+  --radius-control: 0.625rem;
+  --radius-photo: 0.9375rem;
+
+  --shadow-card: 0 20px 50px -20px hsl(220 13% 13% / 0.5);
+  --shadow-button: 0 20px 50px -20px hsl(26 100% 55% / 0.6);
+}

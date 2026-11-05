@@ -10,6 +10,10 @@ export function initCart() {
   const button = document.getElementById('cart-button')
   const card = document.getElementById('cart')
   const count = document.getElementById('cart-count')
+  const empty = document.getElementById('cart-empty')
+  const filled = document.getElementById('cart-filled')
+  const lineQuantity = document.getElementById('cart-quantity')
+  const total = document.getElementById('cart-total')
   const announce = document.getElementById('announce')
 
   let selected = 0 // valeur du sélecteur
@@ -24,10 +28,10 @@ export function initCart() {
     count.hidden = inCart === 0
     count.textContent = inCart
     button.setAttribute('aria-label', inCart ? `Cart, ${items(inCart)}` : 'Cart')
-    document.getElementById('cart-empty').hidden = inCart > 0
-    document.getElementById('cart-filled').hidden = inCart === 0
-    document.getElementById('cart-quantity').textContent = inCart
-    document.getElementById('cart-total').textContent = money(PRICE * inCart)
+    empty.hidden = inCart > 0
+    filled.hidden = inCart === 0
+    lineQuantity.textContent = inCart
+    total.textContent = money(PRICE * inCart)
   }
 
   function setOpen(open) {

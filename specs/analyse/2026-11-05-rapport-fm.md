@@ -21,3 +21,12 @@ Points forts relevés : modules séparés par fonction, état unique du panier e
 | R2 | `screenshot.jpg` à la racine alors que les autres images sont dans `design/` et `specs/reference/` | ❌ Gardé | C'est le livrable du README, à l'emplacement du modèle FM (`README-template.md` : `./screenshot.jpg`) ; ce n'est pas une référence de design |
 | R3 | README : « Solution URL: added after submission » est un texte provisoire | ✅ Juste, déjà prévu | Lien de la solution ajouté au README après la soumission |
 | — | Résumé : « publish the final gallery fix » | ❌ Faux positif | Le dernier commit de galerie (`fd42cab`) ne touche que les tests ; le site en ligne est déjà à jour |
+
+## Regénération du rapport (SDL-FM 1.4.0)
+
+| Date | Version relue par FM | Résultat |
+|---|---|---|
+| 2026-11-05 | v1.0.0 (soumission) | Rapport IA 9,4 / 10 |
+| 2026-11-05 | — | v1.0.1 poussée et déployée, mais pas encore relue : « Regenerate report » est grisé (il faut un crédit de rapport IA). Attendus réglés : R1 et R3. En attente dans `specs/TASKS.md` du dossier racine, après le Multi-step form |
+
+Capture FM juste ; la v1.0.1 ne change pas l'apparence : pas de « Regenerate screenshot ».

@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: added after submission
+- Solution URL: [frontendmentor.io/solutions/e-commerce-product-page-with-tailwind-v4-native-dialog-and-playwright-Ll7Dgb9LKU](https://www.frontendmentor.io/solutions/e-commerce-product-page-with-tailwind-v4-native-dialog-and-playwright-Ll7Dgb9LKU)
 - Live Site URL: [ounokoya.github.io/ecommerce-product-page](https://ounokoya.github.io/ecommerce-product-page/)
 
 ## My process

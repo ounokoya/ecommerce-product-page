@@ -1,7 +1,7 @@
 {
   "name": "ecommerce-product-page",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Solution du challenge Frontend Mentor « E-commerce product page »",
   "scripts": {

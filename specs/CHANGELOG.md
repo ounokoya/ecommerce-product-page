@@ -2,6 +2,17 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · Versions : [SemVer](https://semver.org/lang/fr/).
 
+## [1.0.2] — 2026-11-05
+
+Règles des vérifications automatiques de FM vérifiées en local (SDL-FM 1.5.0), avant la prochaine regénération du rapport.
+
+### Fixed
+- La navigation du menu mobile est nommée « Mobile » : deux repères `<nav>` portaient le même nom (`unique-landmark`).
+- `tests/mise-en-page.spec.js` : variable inutilisée retirée (`no-unused-vars`).
+
+### Added
+- Tests de garde « Règles FM » : html-validate et eslint.
+
 ## [1.0.1] — 2026-11-05
 
 Correctifs issus du rapport Frontend Mentor (`specs/analyse/2026-11-05-rapport-fm.md`, 9,4/10).

@@ -2,6 +2,16 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/) · Versions : [SemVer](https://semver.org/lang/fr/).
 
+## [1.0.1] — 2026-11-05
+
+Correctifs issus du rapport Frontend Mentor (`specs/analyse/2026-11-05-rapport-fm.md`, 9,4/10).
+
+### Changed
+- `cart.js` garde ses références aux éléments du panier au lieu de les rechercher à chaque mise à jour (R1).
+
+### Fixed
+- Le README donne le lien de la solution Frontend Mentor au lieu d'un texte provisoire (R3).
+
 ## [1.0.0] — 2026-11-04
 
 Première version.

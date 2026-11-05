@@ -82,7 +82,7 @@ Pas de défilement horizontal de 320 px aux grands écrans.
 |---|---|---|
 | Bouton du menu (< 1024 px) | button | « Open menu » |
 | Fermer le menu | button | « Close menu » |
-| Navigation | navigation | « Main » |
+| Navigation | navigation | « Main » (en-tête) ; « Mobile » dans le menu mobile (noms uniques, rapport FM) |
 | Liens | link | « Collections », « Men », « Women », « About », « Contact » |
 | Bouton du panier | button | commence par « Cart » ; contient le nombre quand le panier n'est pas vide |
 | Carte du panier | region | « Cart » |

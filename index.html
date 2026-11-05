@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/ecommerce-product-page/assets/favicon-32x32-DQjEQYWa.png">
+
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <script type="module" crossorigin src="/ecommerce-product-page/assets/index-7DbGwcD2.js"></script>
+  <link rel="stylesheet" crossorigin href="/ecommerce-product-page/assets/index-Du0yQpqx.css">
+</head>
+<body class="bg-white text-dark-grayish-blue">
+
+  <!-- En-tête : 67 px (mobile), 89 px avec filet (tablette), 112 px avec filet (desktop) -->
+  <header class="relative z-10 flex h-[67px] items-center pr-[23px] pb-[3px] pl-6 sm:mx-12 sm:h-[89px] sm:border-b sm:border-grayish-blue/30 sm:px-0 sm:pb-0 lg:mx-auto lg:h-28 lg:w-[min(1110px,calc(100%-48px))] lg:pb-1.5">
+    <button id="menu-open" type="button" class="-m-1 p-1 text-dark-grayish-blue hover:text-very-dark-blue lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg width="16" height="15" viewBox="0 0 16 15" aria-hidden="true"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="currentColor" fill-rule="evenodd"/></svg>
+    </button>
+
+    <img class="-mt-1 ml-4 sm:mt-0 lg:ml-0" src="data:image/svg+xml,%3csvg%20width='138'%20height='20'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8.217%2020c4.761%200%207.519-.753%207.519-4.606%200-3.4-3.38-4.172-6.66-4.682l-.56-.085-.279-.041-.35-.053c-2.7-.405-3.18-.788-3.18-1.471%200-.478.49-1.331%202.843-1.331%202.455%200%203.493.647%203.493%201.87v.134h4.281v-.133c0-2.389-1.35-5.238-7.774-5.238-5.952%200-7.201%202.584-7.201%204.752%200%203.097%202.763%204.086%207.223%204.675.21.028.433.054.659.081%201.669.197%203.172.42%203.172%201.585%200%201.01-1.615%201.222-3.298%201.222-2.797%200-3.784-.593-3.784-1.92v-.134H.002L0%2014.926v.317c.008.79.118%201.913%201.057%202.862C2.303%2019.362%204.712%2020%208.217%2020Zm13.21%200v-7.49c0-2.104.547-4.423%204.176-4.423%203.915%200%203.778%202.777%203.768%204.042V20h4.18v-7.768c0-2.264-.176-7.766-6.732-7.766-2.778%200-4.192.911-5.195%202.28h-.197V4.467H17.22V20h4.207Zm21.959%200c5.094%200%207.787-2.07%208.217-5.405H47.53c-.386%201.02-1.63%201.72-4.143%201.72-2.721%200-3.962-1.03-4.25-3.106h12.527c.24-2.13-.029-5.417-3.026-7.44v.005c-1.312-.915-3.056-1.465-5.251-1.465-5.24%200-8.336%202.772-8.336%207.845%200%205.17%203.02%207.846%208.336%207.846Zm4.099-9.574h-8.188c.486-1.574%201.764-2.431%204.089-2.431%202.994%200%203.755%201.267%204.099%202.431ZM70.499%2020V4.457H66.29V6.74h-.176c-1.053-1.377-2.809-2.283-5.677-2.283-6.433%200-7.225%205.293-7.253%207.635v.137c0%202.092.732%207.771%207.241%207.771%202.914%200%204.684-.818%205.734-2.169h.131V20H70.5Zm-8.854-3.623c-3.996%200-4.447-3.032-4.447-4.148%200-1.21.426-4.148%204.455-4.148%203.631%200%204.374%202.044%204.374%204.148%200%202.35-.742%204.148-4.382%204.148ZM88.826%2020l-6.529-9.045%206.588-6.488h-5.827l-6.836%206.756V0h-4.187v19.954h4.187V16.94l3.02-2.976L83.6%2020h5.226Zm9.9%200c5.094%200%207.786-2.07%208.217-5.405h-4.074c-.387%201.02-1.63%201.72-4.143%201.72-2.721%200-3.962-1.03-4.25-3.106h12.527c.24-2.13-.029-5.417-3.026-7.44v.005c-1.312-.915-3.057-1.465-5.251-1.465-5.24%200-8.336%202.772-8.336%207.845%200%205.17%203.02%207.846%208.336%207.846Zm4.098-9.574h-8.187c.485-1.574%201.763-2.431%204.089-2.431%202.994%200%203.755%201.267%204.098%202.431ZM112.76%2020v-6.97c0-2.103.931-4.542%204.05-4.542%201.33%200%202.393.236%202.785.346l.67-3.976c-.728-.16-1.626-.392-2.757-.392-2.665%200-3.622.794-4.486%202.282h-.262V4.466h-4.21V20h4.21Zm17.221%200c4.761%200%207.519-.753%207.519-4.606%200-3.4-3.38-4.172-6.66-4.682l-.56-.085-.279-.041-.349-.053c-2.701-.405-3.181-.788-3.181-1.471%200-.478.49-1.331%202.843-1.331%202.455%200%203.493.647%203.493%201.87v.134h4.282v-.133c0-2.389-1.35-5.238-7.775-5.238-5.952%200-7.201%202.584-7.201%204.752%200%203.097%202.763%204.086%207.224%204.675.21.028.432.054.658.081%201.669.197%203.172.42%203.172%201.585%200%201.01-1.615%201.222-3.298%201.222-2.796%200-3.784-.593-3.784-1.92v-.134h-4.319l-.001.301v.317c.008.79.117%201.913%201.056%202.862%201.246%201.257%203.655%201.895%207.16%201.895Z'%20fill='%231D2026'%20fill-rule='nonzero'/%3e%3c/svg%3e" alt="sneakers" width="138" height="20">
+
+    <nav class="ml-[57px] hidden self-stretch lg:flex" aria-label="Main">
+      <ul class="flex gap-8">
+        <li class="flex"><a class="nav-link" href="#">Collections</a></li>
+        <li class="flex"><a class="nav-link" href="#">Men</a></li>
+        <li class="flex"><a class="nav-link" href="#">Women</a></li>
+        <li class="flex"><a class="nav-link" href="#">About</a></li>
+        <li class="flex"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-[23px] sm:gap-[26px] lg:gap-[46px]">
+      <button id="cart-button" type="button" class="relative -m-1 p-1 text-dark-grayish-blue hover:text-very-dark-blue" aria-label="Cart" aria-expanded="false" aria-controls="cart">
+        <svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="currentColor" fill-rule="nonzero"/></svg>
+        <span id="cart-count" class="absolute top-[-2px] left-[13px] grid h-[13px] min-w-[19px] place-items-center rounded-full bg-orange px-1.5 text-badge font-bold text-very-dark-blue" aria-hidden="true" hidden></span>
+      </button>
+      <a class="block rounded-full hover:ring-2 hover:ring-orange" href="#">
+        <img class="size-6 sm:size-8 lg:size-[50px]" src="/ecommerce-product-page/assets/image-avatar-DVd-Kri7.png" alt="Your profile" width="50" height="50">
+      </a>
+    </div>
+
+    <!-- Carte du panier (ADR-0007) : à 8 px des bords en mobile, 360 × 256 sous le bouton ailleurs -->
+    <section id="cart" class="absolute inset-x-2 top-[76px] min-h-64 rounded-control bg-white shadow-card sm:right-0 sm:left-auto sm:top-[97px] sm:w-[360px] lg:top-[94px] lg:-right-[76px]" aria-labelledby="cart-title" hidden>
+      <h2 id="cart-title" class="border-b border-grayish-blue/30 px-6 pt-[22px] pb-[29px] text-label font-bold text-very-dark-blue">Cart</h2>
+      <p id="cart-empty" class="grid min-h-[188px] place-items-center pb-3 text-label font-bold">Your cart is empty.</p>
+      <div id="cart-filled" class="px-6 pt-6 pb-8" hidden>
+        <div class="flex items-start">
+          <img class="size-[50px] rounded" src="/ecommerce-product-page/assets/image-product-1-thumbnail-CUE_C-rn.jpg" alt="" width="50" height="50">
+          <p class="-mt-0.5 ml-4 min-w-0 flex-1 text-body">
+            Fall Limited Edition Sneakers<br>
+            $125.00 x <span id="cart-quantity">0</span>
+            <b id="cart-total" class="ml-0.5 text-very-dark-blue">$0.00</b>
+          </p>
+          <button id="cart-delete" type="button" class="-m-1 ml-1 self-center p-1 text-dark-grayish-blue hover:text-very-dark-blue" aria-label="Delete item">
+            <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          </button>
+        </div>
+        <button id="checkout" type="button" class="btn mt-[26px] w-full">Checkout</button>
+      </div>
+    </section>
+  </header>
+
+  <!-- Contenu : pleine largeur (mobile), 550 px centrés (tablette), deux colonnes de 445 px (desktop) -->
+  <main class="sm:mx-auto sm:w-[550px] sm:pt-[23px] lg:grid lg:w-[min(1110px,calc(100%-48px))] lg:grid-cols-[minmax(0,445px)_minmax(0,445px)] lg:gap-x-[clamp(3rem,calc(100vw-1315px),125px)] lg:pt-[91px] lg:pr-[47px] lg:pb-20 lg:pl-12">
+    <section aria-label="Product images" data-gallery>
+      <div class="relative">
+        <img class="photo" src="/ecommerce-product-page/assets/image-product-1-D36l1Pee.jpg" alt="Fall Limited Edition Sneakers, image 1 of 4" width="1000" height="1000" data-slide>
+        <img class="photo" src="/ecommerce-product-page/assets/image-product-2-BT5cmuDx.jpg" alt="Fall Limited Edition Sneakers, image 2 of 4" width="1000" height="1000" data-slide hidden>
+        <img class="photo" src="/ecommerce-product-page/assets/image-product-3-CDkTofMU.jpg" alt="Fall Limited Edition Sneakers, image 3 of 4" width="1000" height="1000" data-slide hidden>
+        <img class="photo" src="/ecommerce-product-page/assets/image-product-4-DXKEAM1K.jpg" alt="Fall Limited Edition Sneakers, image 4 of 4" width="1000" height="1000" data-slide hidden>
+        <button type="button" class="absolute inset-0 hidden rounded-photo hover:bg-white/25 lg:block" aria-label="Open image gallery" aria-haspopup="dialog" aria-controls="lightbox" data-open-lightbox></button>
+        <button type="button" class="arrow absolute top-1/2 left-4 size-10 -translate-y-1/2 lg:hidden" aria-label="Previous image" data-step="-1">
+          <svg class="h-3 w-2" viewBox="0 0 12 18" aria-hidden="true"><path d="M11 1 3 9l8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+        <button type="button" class="arrow absolute top-1/2 right-4 size-10 -translate-y-1/2 lg:hidden" aria-label="Next image" data-step="1">
+          <svg class="h-3 w-[8.7px]" viewBox="0 0 13 18" aria-hidden="true"><path d="m2 1 8 8-8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd" vector-effect="non-scaling-stroke"/></svg>
+        </button>
+      </div>
+      <ul class="mt-8 hidden grid-cols-4 gap-[31px] lg:grid">
+        <li><button type="button" class="thumb" aria-label="Show image 1" aria-pressed="true" data-show="0"><img src="/ecommerce-product-page/assets/image-product-1-thumbnail-CUE_C-rn.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 2" aria-pressed="false" data-show="1"><img src="/ecommerce-product-page/assets/image-product-2-thumbnail-B_S5qX-D.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 3" aria-pressed="false" data-show="2"><img src="/ecommerce-product-page/assets/image-product-3-thumbnail-DFTZEtJG.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 4" aria-pressed="false" data-show="3"><img src="/ecommerce-product-page/assets/image-product-4-thumbnail-ByUjHEO4.jpg" alt="" width="88" height="88"></button></li>
+      </ul>
+    </section>
+
+    <section class="px-6 pt-[27px] pb-[88px] sm:px-0 sm:pt-10 sm:pb-10 lg:pt-16 lg:pb-0" aria-labelledby="product-title">
+      <p class="text-brand-mobile font-bold uppercase sm:text-brand">Sneaker Company</p>
+      <h1 id="product-title" class="mt-[14px] text-title-mobile font-bold text-very-dark-blue sm:mt-[19px] sm:text-title">Fall Limited Edition Sneakers</h1>
+      <p class="mt-4 text-body-mobile sm:mt-8 sm:text-body lg:mt-[38px]">
+        These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+
+      <div class="mt-7 flex items-center justify-between sm:mt-8 lg:mt-[26px] lg:block">
+        <p class="flex items-center gap-6 text-very-dark-blue">
+          <span class="sr-only">Price:</span>
+          <span class="text-price font-bold">$125.00</span>
+          <span class="grid h-[27px] w-[51px] place-items-center rounded-md bg-very-dark-blue text-label font-bold text-white">50%<span class="sr-only"> off</span></span>
+        </p>
+        <p class="text-label font-bold lg:mt-4"><span class="sr-only">Original price:</span> <s>$250.00</s></p>
+      </div>
+
+      <div class="mt-7 flex flex-col gap-4 sm:mt-9 sm:flex-row lg:mt-[38px]">
+        <div class="flex h-14 items-center justify-between rounded-control bg-light-grayish-blue sm:w-[157px] sm:shrink-0">
+          <button type="button" class="quantity-step" aria-label="Decrease quantity" data-quantity="-1">
+            <svg width="12" height="4" viewBox="0 0 12 4" aria-hidden="true"><path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          </button>
+          <output id="quantity" class="text-label font-bold text-very-dark-blue" aria-label="Quantity">0</output>
+          <button type="button" class="quantity-step" aria-label="Increase quantity" data-quantity="1">
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          </button>
+        </div>
+        <button id="add-to-cart" type="button" class="btn gap-4 shadow-button sm:flex-1 sm:shadow-none">
+          <svg width="17.6" height="16" viewBox="0 0 22 20" aria-hidden="true"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="currentColor" fill-rule="nonzero"/></svg>
+          Add to cart
+        </button>
+      </div>
+
+      <p id="announce" class="sr-only" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="px-6 py-6 text-center text-[11px] lg:pt-0">
+    Challenge by <a class="text-very-dark-blue underline hover:no-underline" href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a class="text-very-dark-blue underline hover:no-underline" href="https://www.frontendmentor.io/profile/ounokoya">Koya Esdras</a>.
+  </footer>
+
+  <!-- Menu mobile (ADR-0006) : panneau de 250 px, fond noir 75 % -->
+  <dialog id="menu" class="m-0 h-full max-h-none w-[250px] max-w-none bg-white px-[25px] pt-6 backdrop:bg-black/75" aria-label="Menu">
+    <button id="menu-close" type="button" class="-m-1 p-1 text-dark-grayish-blue hover:text-very-dark-blue" aria-label="Close menu">
+      <svg width="14" height="15" viewBox="0 0 14 15" aria-hidden="true"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="currentColor" fill-rule="evenodd"/></svg>
+    </button>
+    <nav class="mt-[55px]" aria-label="Mobile">
+      <ul class="flex flex-col gap-7 text-menu font-bold text-very-dark-blue">
+        <li><a class="hover:text-orange-icon" href="#">Collections</a></li>
+        <li><a class="hover:text-orange-icon" href="#">Men</a></li>
+        <li><a class="hover:text-orange-icon" href="#">Women</a></li>
+        <li><a class="hover:text-orange-icon" href="#">About</a></li>
+        <li><a class="hover:text-orange-icon" href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </dialog>
+
+  <!-- Visionneuse (ADR-0006), desktop seulement : photo 550 × 550 centrée, fond noir 75 % -->
+  <dialog id="lightbox" class="m-auto max-h-none max-w-none overflow-visible bg-transparent backdrop:bg-black/75 **:focus-visible:outline-white" aria-label="Image gallery" data-gallery>
+    <div class="flex w-[550px] flex-col">
+      <button id="lightbox-close" type="button" class="-m-1 self-end p-1 text-white hover:text-orange" aria-label="Close gallery">
+        <svg width="18" height="19" viewBox="0 0 14 15" aria-hidden="true"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="currentColor" fill-rule="evenodd"/></svg>
+      </button>
+      <div class="relative mt-6">
+        <img class="aspect-square w-full rounded-photo" src="/ecommerce-product-page/assets/image-product-1-D36l1Pee.jpg" alt="Fall Limited Edition Sneakers, image 1 of 4" width="1000" height="1000" data-slide>
+        <img class="aspect-square w-full rounded-photo" src="/ecommerce-product-page/assets/image-product-2-BT5cmuDx.jpg" alt="Fall Limited Edition Sneakers, image 2 of 4" width="1000" height="1000" data-slide hidden>
+        <img class="aspect-square w-full rounded-photo" src="/ecommerce-product-page/assets/image-product-3-CDkTofMU.jpg" alt="Fall Limited Edition Sneakers, image 3 of 4" width="1000" height="1000" data-slide hidden>
+        <img class="aspect-square w-full rounded-photo" src="/ecommerce-product-page/assets/image-product-4-DXKEAM1K.jpg" alt="Fall Limited Edition Sneakers, image 4 of 4" width="1000" height="1000" data-slide hidden>
+        <button type="button" class="arrow absolute top-[237px] left-0 size-14 -translate-x-1/2" aria-label="Previous image" data-step="-1">
+          <svg width="12" height="18" viewBox="0 0 12 18" aria-hidden="true"><path d="M11 1 3 9l8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+        </button>
+        <button type="button" class="arrow absolute top-[237px] right-0 size-14 translate-x-1/2" aria-label="Next image" data-step="1">
+          <svg width="13" height="18" viewBox="0 0 13 18" aria-hidden="true"><path d="m2 1 8 8-8 8" stroke="currentColor" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <ul class="mx-auto mt-10 grid w-[445px] grid-cols-4 gap-[31px]">
+        <li><button type="button" class="thumb" aria-label="Show image 1" aria-pressed="true" data-show="0"><img src="/ecommerce-product-page/assets/image-product-1-thumbnail-CUE_C-rn.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 2" aria-pressed="false" data-show="1"><img src="/ecommerce-product-page/assets/image-product-2-thumbnail-B_S5qX-D.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 3" aria-pressed="false" data-show="2"><img src="/ecommerce-product-page/assets/image-product-3-thumbnail-DFTZEtJG.jpg" alt="" width="88" height="88"></button></li>
+        <li><button type="button" class="thumb" aria-label="Show image 4" aria-pressed="false" data-show="3"><img src="/ecommerce-product-page/assets/image-product-4-thumbnail-ByUjHEO4.jpg" alt="" width="88" height="88"></button></li>
+      </ul>
+    </div>
+  </dialog>
+</body>
+</html>

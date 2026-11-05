@@ -28,5 +28,6 @@ Points forts relevés : modules séparés par fonction, état unique du panier e
 |---|---|---|
 | 2026-11-05 | v1.0.0 (soumission) | Rapport IA 9,4 / 10 |
 | 2026-11-05 | — | v1.0.1 poussée et déployée, mais pas encore relue : « Regenerate report » est grisé (il faut un crédit de rapport IA). Attendus réglés : R1 et R3. En attente dans `specs/TASKS.md` du dossier racine, après le Multi-step form |
+| 2026-11-05 | v1.0.2 (locale puis en ligne) | Règles FM vérifiées en local (html-validate, eslint) : `unique-landmark` (2) et `no-unused-vars` corrigés ; 42 / 42 en local et en ligne. Pas relue par FM : « Regenerate report » = 1 crédit IA (bouton grisé) → avec Pro ou le crédit mensuel |
 
 Capture FM juste ; la v1.0.1 ne change pas l'apparence : pas de « Regenerate screenshot ».

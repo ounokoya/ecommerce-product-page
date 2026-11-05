@@ -4,7 +4,8 @@ import { open, main, shownImage } from './helpers.js'
 // Spec §4 — S1 à S4 et S19
 
 const photoBox = async (page) => {
-  const { n, ...box } = await shownImage(main(page))
+  const box = { ...(await shownImage(main(page))) }
+  delete box.n // numéro de la photo : seules les dimensions comptent ici
   return box
 }
 
